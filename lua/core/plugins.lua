@@ -32,6 +32,11 @@ return require('packer').startup(function(use)
   -- Git gutter
   use 'lewis6991/gitsigns.nvim'
 
+  use 'nvim-treesitter/nvim-treesitter'
+
+  -- Colorscheme
+  use 'sainnhe/everforest'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
