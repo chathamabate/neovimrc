@@ -2,6 +2,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+
 local function test_func()
   local api = require "nvim-tree.api"
   api.node.open.vertical(nil, {quit_on_open = true})

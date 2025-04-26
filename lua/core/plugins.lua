@@ -15,15 +15,19 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- My plugins here
-  -- use 'foo1/bar1.nvim'
-  -- use 'foo2/bar2.nvim'
-
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional
     },
   }
+
+  use 'feline-nvim/feline.nvim'
+
+  -- LSP Stuff
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
