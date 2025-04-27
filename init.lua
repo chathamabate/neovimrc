@@ -41,3 +41,8 @@ end
 
 vim.keymap.set('n', 'gE', toggle_diags)
 vim.keymap.set('n', 'ge', toggle_diags_curr)
+
+vim.keymap.set('i', '{<CR>', '{<CR>}<Esc>ko', { noremap = true })
+vim.keymap.set('i', '[<CR>', '[<CR>]<Esc>ko', { noremap = true })
+vim.keymap.set('i', '(<CR>', '(<CR>)<Esc>ko', { noremap = true })
+
