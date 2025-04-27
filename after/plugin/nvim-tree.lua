@@ -12,7 +12,7 @@ local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
   local function opts(desc)
-    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true }
   end
 
   -- default mappings
@@ -29,6 +29,8 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', 'p',     api.node.navigate.parent, opts('Parent Dir'))
   vim.keymap.set('n', 'P',     'gg', opts('Root Dir'))
   vim.keymap.set('n', 's',     api.node.open.vertical, opts('Vert Split'))
+  vim.keymap.set('n', 'I',     api.tree.toggle_hidden_filter, opts('Toggle dotfiles'))
+  vim.keymap.set('n', 'T',     api.tree.toggle_gitignore_filter, opts('Toggle gitignores'))
 end
 
 -- pass to setup along with your other options
