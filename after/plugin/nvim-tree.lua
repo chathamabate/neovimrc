@@ -2,12 +2,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-
-local function test_func()
-  local api = require "nvim-tree.api"
-  api.node.open.vertical(nil, {quit_on_open = true})
-end
-
 local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
@@ -35,7 +29,19 @@ end
 
 -- pass to setup along with your other options
 require("nvim-tree").setup {
-  on_attach = my_on_attach
+  on_attach = my_on_attach,
+  actions = {
+    open_file = {
+      quit_on_open = false,
+      resize_window = true,
+      window_picker = {
+        enable = false,  -- prevent reusing existing windows
+      },
+    },
+  },
+  view = {
+    preserve_window_proportions = true,
+  },
 }
 
 -- Global mapping.

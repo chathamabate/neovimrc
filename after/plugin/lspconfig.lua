@@ -25,16 +25,34 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- These are just some defaults from github
     --vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  end,
+    vim.keymap.set('i', '<C-y>', vim.lsp.buf.signature_help, opts)
+  end
 })
 
 vim.lsp.inlay_hint.enable()
 
 -- You'll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+
 -- These are example language servers. 
+
 local lspc = require('lspconfig')
-lspc.clangd.setup({})
+
+-- Clangd Setup from the internet.
+lspc.clangd.setup({
+  cmd = { "/usr/bin/clangd" },
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+  root_dir = lspc.util.root_pattern(
+    '.clangd'
+    ,'.clang-tidy'
+    ,'.clang-format'
+    ,'compile_commands.json'
+    ,'compile_flags.txt'
+    ,'configure.ac'
+    ,'.git'
+  ),
+  single_file_support = true,
+})
 lspc.lua_ls.setup({})
 
 local cmp = require('cmp')
