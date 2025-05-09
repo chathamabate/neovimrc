@@ -42,6 +42,28 @@ require("nvim-tree").setup {
   view = {
     preserve_window_proportions = true,
   },
+
+  -- Better icons plz.
+  renderer = {
+    icons = {
+      show = {
+        file = true,
+        folder = false,
+        folder_arrow = true,
+        git = false,
+      },
+      web_devicons = {
+        file = {
+          enable = true,
+          color = false,
+        },
+        folder = {
+          enable = false,
+          color = false,
+        },
+      },
+    },
+  },
 }
 
 -- Global mapping.

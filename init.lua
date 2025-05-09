@@ -13,6 +13,8 @@ vim.opt.number = true
 
 vim.opt.wrap = false
 
+vim.opt.colorcolumn = "100"
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "lua",
   callback = function()
@@ -41,8 +43,12 @@ end
 
 vim.keymap.set('n', 'gE', toggle_diags)
 vim.keymap.set('n', 'ge', toggle_diags_curr)
+vim.keymap.set('n', '<C-u>', function () 
+  vim.wo.relativenumber = not vim.wo.relativenumber
+end)
 
 vim.keymap.set('i', '{<CR>', '{<CR>}<Esc>ko', { noremap = true })
 vim.keymap.set('i', '[<CR>', '[<CR>]<Esc>ko', { noremap = true })
 vim.keymap.set('i', '(<CR>', '(<CR>)<Esc>ko', { noremap = true })
+
 
