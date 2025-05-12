@@ -1,5 +1,5 @@
 function SetColor(color)
-    color = color or "everforest" -- have a default value
+    color = color or "kanagawa-dragon" -- have a default value
     vim.cmd.colorscheme(color)
 end
 

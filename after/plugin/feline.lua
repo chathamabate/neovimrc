@@ -9,6 +9,27 @@ if not line_ok then
 	return
 end
 
+local kdragon = {
+  fg =  "#C8C093",
+  bg =  "#181616",
+  black =  "#0d0c0c",
+  brightBlack =  "#a6a69c",
+  blue =  "#8ba4b0",
+  brightBlue =  "#7FB4CA",
+  green =  "#8a9a7b",
+  brightGreen =  "#87a987",
+  purple =  "#a292a3",
+  brightPurple =  "#8992a7",
+  brightRed =  "#E46876",
+  red =  "#c4746e",
+  brightWhite =  "#c5c9c5",
+  white =  "#C8C093",
+  brightYellow =  "#E6C384",
+  yellow =  "#c4b28a",
+  brightCyan =  "#7AA89F",
+  cyan =  "#8ea4a2",
+}
+
 local one_monokai = {
 	fg = "#abb2bf",
 	bg = "#1e2024",
@@ -28,10 +49,10 @@ local vi_mode_colors = {
 	OP = "green",
 	INSERT = "yellow",
 	VISUAL = "purple",
-	LINES = "orange",
-	BLOCK = "dark_red",
+	LINES = "brightRed",
+	BLOCK = "red",
 	REPLACE = "red",
-	COMMAND = "aqua",
+	COMMAND = "cyan",
 }
 
 local c = {
@@ -46,7 +67,7 @@ local c = {
 		hl = function()
 			return {
 				fg = require("feline.providers.vi_mode").get_mode_color(),
-				bg = "darkblue",
+				bg = "bg",
 				style = "bold",
 				name = "NeovimModeHLColor",
 			}
@@ -57,8 +78,8 @@ local c = {
 	gitBranch = {
 		provider = "git_branch",
 		hl = {
-			fg = "peanut",
-			bg = "darkblue",
+			fg = "yellow",
+			bg = "bg",
 			style = "bold",
 		},
 		left_sep = "block",
@@ -68,7 +89,7 @@ local c = {
 		provider = "git_diff_added",
 		hl = {
 			fg = "green",
-			bg = "darkblue",
+			bg = "bg",
 		},
 		left_sep = "block",
 		right_sep = "block",
@@ -77,7 +98,7 @@ local c = {
 		provider = "git_diff_removed",
 		hl = {
 			fg = "red",
-			bg = "darkblue",
+			bg = "bg",
 		},
 		left_sep = "block",
 		right_sep = "block",
@@ -86,7 +107,7 @@ local c = {
 		provider = "git_diff_changed",
 		hl = {
 			fg = "fg",
-			bg = "darkblue",
+			bg = "bg",
 		},
 		left_sep = "block",
 		right_sep = "right_filled",
@@ -122,7 +143,7 @@ local c = {
 	diagnostic_hints = {
 		provider = "diagnostic_hints",
 		hl = {
-			fg = "aqua",
+			fg = "bg",
 		},
 	},
 	diagnostic_info = {
@@ -138,7 +159,7 @@ local c = {
 		},
 		hl = {
 			fg = "red",
-			bg = "darkblue",
+			bg = "bg",
 			style = "bold",
 		},
 		left_sep = "block",
@@ -187,6 +208,6 @@ local components = {
 
 feline.setup({
 	components = components,
-	theme = one_monokai,
+  theme = kdragon,
 	vi_mode_colors = vi_mode_colors,
 })

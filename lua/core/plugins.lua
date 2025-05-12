@@ -36,6 +36,8 @@ return require('packer').startup(function(use)
 
   -- Colorscheme
   use 'sainnhe/everforest'
+  use "scottmckendry/cyberdream.nvim"
+  use "rebelot/kanagawa.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
