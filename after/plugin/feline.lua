@@ -4,6 +4,9 @@
 
 -- Take from somebody else's config.
 
+-- Switching to feline.
+--[[
+
 local line_ok, feline = pcall(require, "feline")
 if not line_ok then
 	return
@@ -208,6 +211,9 @@ local components = {
 
 feline.setup({
 	components = components,
-  theme = kdragon,
+  theme = srcery,
 	vi_mode_colors = vi_mode_colors,
 })
+
+]]
+

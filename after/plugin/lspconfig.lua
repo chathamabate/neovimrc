@@ -3,6 +3,8 @@
 -- If you don't know what that is, watch this 5 min video:
 -- https://www.youtube.com/watch?v=LaS32vctfOY
 
+-- require('lspconfig') is deprecated, but I am too lazy to change right now.
+
 -- Reserve a space in the gutter
 vim.opt.signcolumn = 'yes'
 
@@ -35,7 +37,6 @@ vim.lsp.inlay_hint.enable()
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
 -- These are example language servers. 
-
 local lspc = require('lspconfig')
 
 -- Clangd Setup from the internet.

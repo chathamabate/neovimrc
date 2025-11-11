@@ -22,7 +22,15 @@ return require('packer').startup(function(use)
     },
   }
 
-  use 'feline-nvim/feline.nvim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+  }
+
+  -- Switching to lua line.
+  -- use 'feline-nvim/feline.nvim'
 
   -- LSP Stuff
   use 'neovim/nvim-lspconfig'
@@ -38,6 +46,9 @@ return require('packer').startup(function(use)
   use 'sainnhe/everforest'
   use "scottmckendry/cyberdream.nvim"
   use "rebelot/kanagawa.nvim"
+  use "iagorrr/noctishc.nvim"
+  use "srcery-colors/srcery-vim"
+  use "morhetz/gruvbox"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

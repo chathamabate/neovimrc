@@ -42,7 +42,7 @@ end
 
 vim.keymap.set('n', 'gE', toggle_diags)
 vim.keymap.set('n', 'ge', toggle_diags_curr)
-vim.keymap.set('n', '<C-u>', function () 
+vim.keymap.set('n', '<C-i>', function () 
   vim.wo.relativenumber = not vim.wo.relativenumber
 end)
 
