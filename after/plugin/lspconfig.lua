@@ -36,25 +36,22 @@ vim.lsp.inlay_hint.enable()
 -- You'll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
--- These are example language servers. 
-local lspc = require('lspconfig')
-
--- Clangd Setup from the internet.
-lspc.clangd.setup({
-  cmd = { "/usr/bin/clangd" },
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-  root_dir = lspc.util.root_pattern(
-    '.clangd'
-    ,'.clang-tidy'
-    ,'.clang-format'
-    ,'compile_commands.json'
-    ,'compile_flags.txt'
-    ,'configure.ac'
-    ,'.git'
-  ),
-  single_file_support = true,
+vim.lsp.config('*', {
+  capabilities = {
+    textDocument = {
+      semanticTokens = {
+        multilineTokenSupport = true,
+      }
+    }
+  },
+  root_markers = { '.git' },
 })
-lspc.lua_ls.setup({})
+
+-- Clangd Setup!
+vim.lsp.enable('clangd')
+
+-- Rust Setup!
+vim.lsp.enable('rust_analyzer')
 
 local cmp = require('cmp')
 
