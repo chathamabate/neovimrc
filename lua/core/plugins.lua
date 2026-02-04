@@ -29,6 +29,14 @@ return require('packer').startup(function(use)
     },
   }
 
+  -- Telescope!
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+        'nvim-lua/plenary.nvim',
+    }
+  }
+
   -- Switching to lua line.
   -- use 'feline-nvim/feline.nvim'
 
