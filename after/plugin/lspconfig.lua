@@ -53,6 +53,9 @@ vim.lsp.enable('clangd')
 -- Rust Setup!
 vim.lsp.enable('rust_analyzer')
 
+-- PYLSP Setup!
+vim.lsp.enable('pylsp')
+
 local cmp = require('cmp')
 
 cmp.setup({

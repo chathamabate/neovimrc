@@ -52,6 +52,9 @@ return require('packer').startup(function(use)
 
   -- Colorscheme
   use 'sainnhe/everforest'
+  use 'slugbyte/lackluster.nvim'
+  use 'vimcolorschemes/olive-crt.nvim'
+  use 'sainnhe/gruvbox-material'
   use "scottmckendry/cyberdream.nvim"
   use "rebelot/kanagawa.nvim"
   use "iagorrr/noctishc.nvim"
