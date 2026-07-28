@@ -33,6 +33,7 @@ TEMP_PROMPT+=$R_BORDER
 
 export PROMPT="$TEMP_PROMPT %B>%b "
 
+
 # Everforest colors 
 # (Light Red) F5 6C 72
 # (Black) 1B 1D 21
