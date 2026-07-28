@@ -48,8 +48,6 @@ return require('packer').startup(function(use)
   -- Git gutter
   use 'lewis6991/gitsigns.nvim'
 
-  use 'nvim-treesitter/nvim-treesitter'
-
   -- Colorscheme
   use 'sainnhe/everforest'
   use 'slugbyte/lackluster.nvim'
