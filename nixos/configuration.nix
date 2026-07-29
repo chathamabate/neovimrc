@@ -81,6 +81,10 @@
     };
     
     # Attempting to defer most hyperland config to user.
+    # I think this will set up the defualt hyprland config for the
+    # user.
+    # Outlining all of the hyprland config in nixos language is
+    # a pain tbh.
     hyprland = {
       enable = true;
       withUWSM = true;
