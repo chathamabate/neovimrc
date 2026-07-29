@@ -5,6 +5,10 @@
     tmux
     neovim
     ripgrep
+    tree
+
+    python3
+    python3Packages.python-lsp-server
   ];
 
   programs = {
@@ -22,14 +26,12 @@
       };
 
       # Here we allow the creation of an extras bash script!
-      bashrcExtra = ''
-        if [ -z "$EXTRAS_SCRIPT" ]; then
-	  EXTRAS_SCRIPT=~/git/neovimrc/bash/extras.sh
-        fi
-
-	if [ -f "$EXTRAS_SCRIPT" ]; then
-	  source "$EXTRAS_SCRIPT"
-	fi
+      bashrcExtra = 
+      ''
+      # bashrcExtra from NixOS Config #
+      if [ -z "$EXTRAS_SCRIPT" ]; then EXTRAS_SCRIPT=~/git/neovimrc/bash/extras.sh; fi
+      if [ -f "$EXTRAS_SCRIPT" ]; then source "$EXTRAS_SCRIPT"; fi
+      #################################
       '';
     };
 
