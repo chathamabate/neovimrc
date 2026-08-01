@@ -62,15 +62,15 @@ hl.config({
         gaps_in  = 5,
         gaps_out = 20,
 
-        border_size = 5,
+        border_size = 3,
 
         col = {
-            active_border   = { colors = {"rgba(00FF00FF)", "rgba(FF0000FF)"}, angle = 0 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = "rgb(0, 0, 0)",
+            inactive_border = "rgba(59595900)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = false,
+        resize_on_border = true,
 
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
@@ -220,6 +220,8 @@ hl.bind(mainMod .. " + SHIFT + K",  hl.dsp.window.move({ direction = "up" }))
 
 hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + SHIFT + J",  hl.dsp.window.move({ direction = "down" }))
+
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
