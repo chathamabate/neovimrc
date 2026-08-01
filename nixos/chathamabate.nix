@@ -43,6 +43,7 @@
     kitty = {
       enable = true;
       themeFile = "Catppuccin-Mocha";
+      extraConfig = "background_opacity 0.9";
     };
 
     chromium = { enable = true; };
