@@ -7,6 +7,8 @@
     ripgrep
     tree
 
+    gnumake
+
     python3
     python3Packages.python-lsp-server
   ];
