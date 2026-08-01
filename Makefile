@@ -1,57 +1,45 @@
 
 GIT_TOP:=$(shell git rev-parse --show-toplevel)
 
+# Inputs for `hard_copy` target.
+
+# Where to copy from.
 FROM?=
+
+# Where to copy to.
 TO?=
 
 .PHONY: hard_copy
 hard_copy:
-	# Confirm both from/to exist before doing anything!
 	test -e "$(FROM)"
-	test -e "$(TO)"
-	rm -rf $(TO) # Always will succeed.
+	rm -rf $(TO) 
 	cp -r $(FROM) $(TO)
 
-# Nixos targets
+PULL_TARGETS:=
+PUSH_TARGETS:=
 
-REPO_NIXOS:=$(GIT_TOP)/nixos
-REAL_NIXOS:=/etc/nixos
+# $(1) - Name of relation
+# $(2) - Repo destination, relative to git top.
+# $(3) - Real destination
+# $(4) - Relative paths to delete when pulling in!
+define COPY_RELATION
+.PHONY: pull.$(1) push.$(1)
 
-.PHONY: pull.nixos push.nixos
-pull.nixos:
-	$(MAKE) hard_copy FROM=$(REAL_NIXOS) TO=$(REPO_NIXOS)
+PULL_TARGETS+=pull.$(1)
+pull.$(1):
+	$$(MAKE) hard_copy FROM=$(3) TO=$(GIT_TOP)/$(2)
+	rm -rf $(addprefix $(GIT_TOP)/$(2)/,$(4))
 
-push.nixos:
-	$(MAKE) hard_copy FROM=$(REPO_NIXOS) TO=$(REAL_NIXOS)
+PUSH_TARGETS+=push.$(1)
+push.$(1):
+	$$(MAKE) hard_copy FROM=$(GIT_TOP)/$(2) TO=$(3)
+endef
 
-# Neovim targets
+$(eval $(call COPY_RELATION,nixos,nixos,/etc/nixos,))
+$(eval $(call COPY_RELATION,nvim,nvim,$(HOME)/.config/nvim,plugin))
+$(eval $(call COPY_RELATION,tmux,tmux,$(HOME)/.config/tmux,plugins))
 
-REPO_NVIM:=$(GIT_TOP)/nvim
-REAL_NVIM:=$(HOME)/.config/nvim
-
-.PHONY: pull.nvim push.nvim
-pull.nvim:
-	$(MAKE) hard_copy FROM=$(REAL_NVIM) TO=$(REPO_NVIM)
-	rm -rf $(REPO_NVIM)/plugin
-
-push.nvim:
-	$(MAKE) hard_copy FROM=$(REPO_NVIM) TO=$(REAL_NVIM)
-
-# Tmux targets
-
-REPO_TMUX:=$(GIT_TOP)/tmux
-REAL_TMUX:=$(HOME)/.config/tmux
-
-.PHONY: pull.tmux push.tmux
-pull.tmux:
-	$(MAKE) hard_copy FROM=$(REAL_TMUX) TO=$(REPO_TMUX)
-	rm -rf $(REPO_TMUX)/plugins
-
-push.tmux:
-	$(MAKE) hard_copy FROM=$(REPO_TMUX) TO=$(REAL_TMUX)
-
-# All targets!
 
 .PHONY: pull.all push.all
-pull.all: pull.nixos pull.nvim pull.tmux
-push.all: push.nixos push.nvim push.tmux
+pull.all: $(PULL_TARGETS)
+push.all: $(PUSH_TARGETS)
