@@ -28,6 +28,7 @@ define COPY_RELATION
 PULL_TARGETS+=pull.$(1)
 pull.$(1):
 	$$(MAKE) hard_copy FROM=$(3) TO=$(GIT_TOP)/$(2)
+	# Does nothing if no paths are given!
 	rm -rf $(addprefix $(GIT_TOP)/$(2)/,$(4))
 
 PUSH_TARGETS+=push.$(1)
@@ -38,7 +39,7 @@ endef
 $(eval $(call COPY_RELATION,nixos,nixos,/etc/nixos,))
 $(eval $(call COPY_RELATION,nvim,nvim,$(HOME)/.config/nvim,plugin))
 $(eval $(call COPY_RELATION,tmux,tmux,$(HOME)/.config/tmux,plugins))
-
+$(eval $(call COPY_RELATION,hypr,hypr,$(HOME)/.config/hypr,))
 
 .PHONY: pull.all push.all
 pull.all: $(PULL_TARGETS)

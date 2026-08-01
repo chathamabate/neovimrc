@@ -4,6 +4,9 @@
     # NixOS to do no extra configuration work.
     tmux
     neovim
+    waybar
+    hyprpaper
+
     ripgrep
     tree
 
@@ -59,41 +62,12 @@
         };
       };
     };
-
-    # Consider not having this here tbh.
-    waybar = {
-      enable = true;
-      settings = [ 
-        {
-          layer = "top";
-	  position = "top";
-	  mod = "dock";
-	  height = 30;
-	  modules-center = [ "clock" ];
-	}
-      ];
-    };
   }; 
 
   services = {
     gnome-keyring = {
       enable = true;
       components = [ "secrets" ];
-    };
-
-    # Wallpaper type shi. Also consider putting this into lua.
-    hyprpaper = {
-      enable = true;
-      settings = {
-        splash = false;
-        preload = [ "~/statics/wps/*" ];
-        wallpaper = [
-	  {
-	    monitor = "";
-	    path = "~/statics/wps/wp.jpg";
-	  }
-        ];
-      };
     };
   };
 
