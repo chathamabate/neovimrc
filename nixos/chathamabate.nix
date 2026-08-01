@@ -42,7 +42,7 @@
 
     kitty = {
       enable = true;
-      themeFile = "GruvboxMaterialDarkMedium";
+      themeFile = "Catppuccin-Mocha";
     };
 
     chromium = { enable = true; };

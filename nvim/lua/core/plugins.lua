@@ -59,6 +59,12 @@ return require('packer').startup(function(use)
   use "srcery-colors/srcery-vim"
   use "morhetz/gruvbox"
   use "rose-pine/neovim"
+  use "cocopon/iceberg.vim"
+  use "cocopon/iceberg.vim"
+  use "folke/tokyonight.nvim"
+  use "ntk148v/komau.vim"
+  use "aikhe/fleur.nvim"
+  use "nikolvs/vim-sunbather"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
