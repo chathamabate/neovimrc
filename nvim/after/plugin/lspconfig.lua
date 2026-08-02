@@ -56,6 +56,9 @@ vim.lsp.enable('rust_analyzer')
 -- PYLSP Setup!
 vim.lsp.enable('pylsp')
 
+-- CSS!
+vim.lsp.enable('cssls')
+
 local cmp = require('cmp')
 
 cmp.setup({

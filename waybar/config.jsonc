@@ -1,0 +1,16 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-center": ["clock"],
+    "modules-right": ["battery"],
+    "modules-left": ["ext/workspaces"],
+    "clock": {
+        "format": "{:%I:%M %p}"
+        "tooltip": false
+    },
+    "ext/workspaces": {
+        "sort-by-number": true,
+        "on-click": "activate",
+        "active-only": false
+    }
+}

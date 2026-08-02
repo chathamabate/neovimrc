@@ -1,0 +1,37 @@
+
+window#waybar {
+    background-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.module {
+    color: rgb(166, 277, 161);
+    transition-duration: .3s;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* I feel like I could make my own cool bar tbh! */
+
+.module:hover {
+    color: rgb(17, 17, 27);
+    background-color: rgb(166, 277, 161);
+}
+
+/*
+#clock {
+    padding: 10px;
+    background-color: red;
+    border-color: pink;
+    border-style: solid;
+    border-width: 10px;
+    transition-duration: .5s;
+}
+
+#clock:hover {
+    background-color: blue;
+}
+*/
+

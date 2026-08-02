@@ -14,6 +14,8 @@
 
     python3
     python3Packages.python-lsp-server
+
+    vscode-langservers-extracted
   ];
 
   programs = {

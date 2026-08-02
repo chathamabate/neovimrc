@@ -40,6 +40,7 @@ $(eval $(call COPY_RELATION,nixos,nixos,/etc/nixos,))
 $(eval $(call COPY_RELATION,nvim,nvim,$(HOME)/.config/nvim,plugin))
 $(eval $(call COPY_RELATION,tmux,tmux,$(HOME)/.config/tmux,plugins))
 $(eval $(call COPY_RELATION,hypr,hypr,$(HOME)/.config/hypr,))
+$(eval $(call COPY_RELATION,waybar,waybar,$(HOME)/.config/waybar,))
 
 .PHONY: pull.all push.all
 pull.all: $(PULL_TARGETS)
