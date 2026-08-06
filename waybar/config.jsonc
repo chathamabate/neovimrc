@@ -2,15 +2,24 @@
     "layer": "top",
     "position": "top",
     "modules-center": ["clock"],
-    "modules-right": ["battery"],
+    "modules-right": ["cpu", "battery"],
     "modules-left": ["ext/workspaces"],
     "clock": {
-        "format": "{:%I:%M %p}"
+        "format": "{:%I:%M %p}",
         "tooltip": false
     },
-    "ext/workspaces": {
-        "sort-by-number": true,
-        "on-click": "activate",
-        "active-only": false
+    "cpu": {
+        "states": {
+            "stressed": 75
+        },
+        "format": "{usage}"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            "low": 15,
+            "mid": 65
+        },
+        "format": "{capacity}"
     }
 }

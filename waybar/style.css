@@ -1,37 +1,93 @@
+/* 
+ * Catppuccin Mocha — waybar style
+ * Clean, minimal, consistent module pills
+ */
 
-window#waybar {
-    background-color: transparent;
+@define-color base     #1e1e2e;
+@define-color mantle    #181825;
+@define-color crust     #11111b;
+
+@define-color text      #cdd6f4;
+@define-color subtext0  #a6adc8;
+@define-color subtext1  #bac2de;
+@define-color overlay0  #6c7086;
+
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+
+@define-color mauve     #cba6f7;
+@define-color lavender  #b4befe;
+@define-color blue      #89b4fa;
+@define-color teal      #94e2d5;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color peach     #fab387;
+@define-color red       #f38ba8;
+
+* {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
 
-.module {
-    color: rgb(166, 277, 161);
-    transition-duration: .3s;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
+window#waybar {
+    background-color: rgba(0, 0, 0, .6)
 }
 
-/* I feel like I could make my own cool bar tbh! */
-
-.module:hover {
-    color: rgb(17, 17, 27);
-    background-color: rgb(166, 277, 161);
+.modules-left {
+    margin-left: 4px;
 }
 
-/*
+#workspaces button {
+    padding: 0px;
+    border-width: 0px;
+    margin: 0px;
+
+    color: @subtext1;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active {
+    font-weight: bold;
+    color: @red;
+}
+
+#workspaces button:hover {
+    background: inherit;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border: none;
+}
+
 #clock {
-    padding: 10px;
-    background-color: red;
-    border-color: pink;
-    border-style: solid;
-    border-width: 10px;
-    transition-duration: .5s;
+    font-weight: bold;
+    color: @green;
 }
 
-#clock:hover {
-    background-color: blue;
+.modules-right {
+    margin-right: 4px;
 }
-*/
+
+#cpu {
+    color: @blue;
+    margin-right: 4px;
+}
+
+#cpu.stressed {
+    color: @red;
+}
+
+/* For some reason charging style doesn't really work :( */
+
+#battery.discharging {
+    color: @green;
+}
+
+#battery.discharging.mid {
+    color: @yellow;
+}
+
+#battery.discharging.low {
+    color: @red;
+}
+
 

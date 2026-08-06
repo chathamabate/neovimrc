@@ -43,7 +43,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("hyprpaper")
 
   -- When editing waybar, it's best to just have this disabled.
-  --hl.exec_cmd("waybar")
+  hl.exec_cmd("waybar")
 end)
 
 -------------------------------
