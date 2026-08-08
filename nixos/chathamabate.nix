@@ -1,22 +1,35 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ 
-    # Sometimes it's preferred to have packages here when we want
-    # NixOS to do no extra configuration work.
-    tmux
-    neovim
-    waybar
-    hyprpaper
+  home = with pkgs; {
+    packages = [ 
+      # Sometimes it's preferred to have packages here when we want
+      # NixOS to do no extra configuration work.
+      tmux
+      neovim
+      waybar
+      hyprpaper
 
-    ripgrep
-    tree
+      ripgrep
+      tree
+      unzip
 
-    gnumake
+      gnumake
 
-    python3
-    python3Packages.python-lsp-server
+      python3
+      python3Packages.python-lsp-server
 
-    vscode-langservers-extracted
-  ];
+      vscode-langservers-extracted
+    ];
+
+    pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = catppuccin-cursors.mochaDark;
+      name = "Catppuccin Cursors";
+    };
+
+    # DO NOT CHANGE
+    stateVersion = "26.05"; 
+  };
 
   programs = {
     # Configurable programs which need only a few simple configurations
@@ -73,7 +86,4 @@
       components = [ "secrets" ];
     };
   };
-
-  # DO NOT CHANGE
-  home.stateVersion = "26.05"; 
 }

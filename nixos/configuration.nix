@@ -23,6 +23,9 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Opt for automatic timezone discovery below.
+  time.timeZone = null;
+
   # Configure network connections interactively with nmcli or nmtui.
   networking = {
     networkmanager.enable = true;
@@ -57,6 +60,8 @@
         addresses = true;
       }; 
     };
+
+    automatic-timezoned.enable = true;
 
     # May take this out tbh.
     displayManager.sddm = {
