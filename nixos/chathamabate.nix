@@ -19,7 +19,12 @@
 
       vscode-langservers-extracted
 
+      # Cross compiler stuff for FernOS Dev.
+      pkgsCross.i686-embedded.buildPackages.gcc
       pkgsCross.i686-embedded.buildPackages.binutils
+      grub2
+      xorriso
+      qemu
     ];
 
     pointerCursor = {
