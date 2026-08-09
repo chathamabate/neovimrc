@@ -18,6 +18,8 @@
       python3Packages.python-lsp-server
 
       vscode-langservers-extracted
+
+      pkgsCross.i686-embedded.buildPackages.binutils
     ];
 
     pointerCursor = {
