@@ -11,7 +11,6 @@ vim.opt.tabstop = 4
 vim.opt.number = true
 
 vim.opt.wrap = false
-vim.opt.paste = true
 
 vim.opt.colorcolumn = "100"
 

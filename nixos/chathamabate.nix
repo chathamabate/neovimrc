@@ -18,6 +18,7 @@
       python3Packages.python-lsp-server
 
       vscode-langservers-extracted
+      clang-tools
 
       # Cross compiler stuff for FernOS Dev.
       pkgsCross.i686-embedded.buildPackages.gcc
