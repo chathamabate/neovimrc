@@ -106,11 +106,18 @@
         extraGroups = [ "wheel" ]; # sudo access bby.
         isNormalUser = true;
       };
+
+      /* Setup a guest account (maybe just with firefox?) */
+      guest = {
+        description = "Guest";
+	isNormalUser = true;
+      };
     };
   };
 
   home-manager.users = {
     chathamabate = import ./chathamabate.nix;
+    guest = import ./guest.nix;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system 
